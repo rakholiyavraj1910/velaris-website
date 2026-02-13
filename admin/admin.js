@@ -1,5 +1,9 @@
-async function fetchJSON(url, options) {
-  const res = await fetch(url, options);
+async function fetchJSON(url, options = {}) {
+  const res = await fetch(url, {
+    credentials: 'include',
+    ...options
+  });
+  
   if (!res.ok) {
     const body = await res.json().catch(() => ({}));
     throw new Error(body.error || 'Request failed');
