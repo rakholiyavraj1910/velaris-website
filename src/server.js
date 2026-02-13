@@ -49,19 +49,18 @@ app.set('trust proxy', 1);
 
 app.use(
   session({
-    store: new SQLiteStore({ db: 'sessions.db', dir: path.join(process.cwd(), 'data') }),
     secret: process.env.SESSION_SECRET || 'velaris-session-secret-change-me',
     resave: false,
     saveUninitialized: false,
     cookie: {
-      httpOnly: true,
-      secure: true,
-      sameSite: 'none',
-      maxAge: 1000 * 60 * 60 * 8
-    }
-
+  httpOnly: true,
+  secure: true,
+  sameSite: 'lax',
+  maxAge: 1000 * 60 * 60 * 8
+}
   })
 );
+
 
 app.use('/uploads', express.static(uploadDir));
 app.use('/admin/assets', express.static(path.join(process.cwd(), 'admin')));

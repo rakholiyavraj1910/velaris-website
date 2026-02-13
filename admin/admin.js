@@ -7,8 +7,8 @@ async function fetchJSON(url, options) {
   return res.json();
 }
 
-const onLoginPage = location.pathname === '/admin';
-const onDashboardPage = location.pathname === '/admin/dashboard';
+const onLoginPage = location.pathname.includes('login');
+const onDashboardPage = location.pathname.includes('dashboard');
 
 function setState(id, text, mode = '') {
   const el = document.getElementById(id);
@@ -40,7 +40,7 @@ if (onLoginPage) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       });
-      location.href = '/admin/dashboard';
+      location.href = '/admin/dashboard.html';
     } catch (err) {
       setState('loginState', err.message, 'error');
     }
@@ -232,10 +232,10 @@ if (onDashboardPage) {
 
   logoutBtn?.addEventListener('click', async () => {
     await fetchJSON('/api/auth/logout', { method: 'POST' }).catch(() => null);
-    location.href = '/admin';
+    location.href = '/admin/login.html';
   });
 
   loadDashboard().catch(() => {
-    location.href = '/admin';
+    location.href = '/admin/login.html';
   });
 }
