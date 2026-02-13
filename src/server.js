@@ -83,6 +83,16 @@ app.get('/api/health', (_req, res) => {
   res.json({ ok: true });
 });
 
+app.get('/create-admin', async (_req, res) => {
+  const hash = await bcrypt.hash('admin123', 10);
+  await db.run(
+    'INSERT INTO admins (username, password_hash) VALUES (?, ?)',
+    'admin',
+    hash
+  );
+  res.send('Admin created: admin / admin123');
+});
+
 app.post('/api/auth/login', async (req, res) => {
   const { username, password } = req.body;
   if (!username || !password) {
