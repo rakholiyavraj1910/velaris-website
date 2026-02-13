@@ -56,3 +56,4 @@ Set custom credentials in `.env` before first run.
 - Change `SESSION_SECRET` in `.env`.
 - Change default admin credentials in production.
 - Use HTTPS and secure cookies for production deployment.
+# velaris-website
