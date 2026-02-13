@@ -363,27 +363,20 @@ app.get('/api/admin/analytics', requireAuth, async (_req, res) => {
   });
 });
 
-app.get('/admin', (_req, res) => {
-  res.sendFile(path.join(process.cwd(), 'admin', 'login.html'));
-});
-
-app.get('/admin/dashboard', (_req, res) => {
-  res.sendFile(path.join(process.cwd(), 'admin', 'dashboard.html'));
-});
+app.use('/admin', express.static(path.join(process.cwd(), 'admin')));
+app.use(express.static(path.join(process.cwd(), 'public')));
 
 app.get('*', (req, res, next) => {
   if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
     return next();
   }
 
-  if (req.path === '/admin' || req.path === '/admin/dashboard') {
-    return next();
-  }
 
   const candidate = path.join(process.cwd(), 'public', req.path);
   if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) {
     return res.sendFile(candidate);
   }
+
 
   return res.sendFile(path.join(process.cwd(), 'public', 'index.html'));
 });
