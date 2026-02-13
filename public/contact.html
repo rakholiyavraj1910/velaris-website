@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | VELARIS LUX LIVING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-page="contact" style="--hero-image: url('https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?auto=format&fit=crop&w=1900&q=80');">
+    <header class="site-header">
+      <div class="nav-wrap">
+        <a class="logo" href="/index.html">VELARIS LUX LIVING</a>
+        <nav class="nav-links">
+          <a href="/index.html">Home</a>
+          <a href="/sofas.html">Sofas</a>
+          <a href="/beds.html">Beds</a>
+          <a href="/chairs.html">Chairs</a>
+          <a href="/tables.html">Tables</a>
+          <a href="/about.html">About</a>
+          <a class="active" href="/contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="split-hero">
+        <div>
+          <p class="eyebrow">Private Access</p>
+          <h1>Contact</h1>
+          <p>Request private appointments, tailored curation, and showroom bookings.</p>
+        </div>
+      </section>
+
+      <section class="section reveal">
+        <div class="contact-grid">
+          <aside class="contact-card">
+            <h3>Velaris Concierge</h3>
+            <p class="info-line">Phone: <a href="tel:+919638627632">+91 9638627632</a></p>
+            <p class="info-line">Email: <a href="mailto:rakholiyavraj1910@gmail.com">rakholiyavraj1910@gmail.com</a></p>
+            <p class="info-line">Showroom visits are managed by private appointment.</p>
+          </aside>
+
+          <div class="contact-form">
+            <h3>Private Appointment Request</h3>
+            <form id="inquiryForm">
+              <input type="text" name="name" placeholder="Full Name" required />
+              <input type="email" name="email" placeholder="Email Address" required />
+              <input type="tel" name="phone" placeholder="Phone Number" required />
+              <select id="productId" name="productId">
+                <option value="">General Consultation</option>
+              </select>
+              <textarea name="message" placeholder="Tell us about your project or preferred showroom visit time"></textarea>
+              <button class="btn" type="submit">Inquire</button>
+              <p id="formState" class="notice">Your request will be handled by our private concierge team.</p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">VELARIS LUX LIVING · By Appointment Only</footer>
+    <script src="/script.js"></script>
+  </body>
+</html>

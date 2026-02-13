@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | VELARIS LUX LIVING</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/assets/admin.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <header class="topbar">
+        <div>
+          <div class="brand">VELARIS LUX LIVING</div>
+          <small id="adminIdentity">Admin Dashboard</small>
+        </div>
+        <div class="actions">
+          <a class="btn secondary" href="/index.html" target="_blank" rel="noreferrer">View Website</a>
+          <button id="logoutBtn" class="secondary" type="button">Logout</button>
+        </div>
+      </header>
+
+      <section class="grid" id="analyticsGrid"></section>
+
+      <section class="panel">
+        <h2>Product Inventory Management</h2>
+        <form id="productForm" enctype="multipart/form-data">
+          <div class="form-grid">
+            <input type="hidden" name="id" id="productId" />
+            <input type="text" name="name" placeholder="Product Name" required />
+            <select name="category" required>
+              <option value="">Category</option>
+              <option value="sofas">Sofas</option>
+              <option value="beds">Beds</option>
+              <option value="chairs">Chairs</option>
+              <option value="tables">Tables</option>
+            </select>
+            <input type="number" name="stock" min="0" placeholder="Stock" required />
+            <input type="text" name="image_url" placeholder="Image URL (or upload file below)" />
+            <label>
+              <small>Upload Image</small>
+              <input type="file" name="image" accept="image/*" />
+            </label>
+            <label class="full">
+              Description
+              <textarea name="description" required></textarea>
+            </label>
+            <label class="full">
+              Materials
+              <textarea name="materials" required></textarea>
+            </label>
+            <label class="full">
+              Craftsmanship
+              <textarea name="craftsmanship" required></textarea>
+            </label>
+            <label>
+              <small>Featured</small>
+              <select name="featured">
+                <option value="false">No</option>
+                <option value="true">Yes</option>
+              </select>
+            </label>
+            <label>
+              <small>Available</small>
+              <select name="is_available">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </label>
+            <label>
+              <small>Visible On Website</small>
+              <select name="is_visible">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+              </select>
+            </label>
+            <div class="actions">
+              <button type="submit">Save Product</button>
+              <button class="secondary" type="button" id="resetProductForm">Reset</button>
+            </div>
+          </div>
+        </form>
+        <p class="notice" id="productState">Create or edit inventory items here.</p>
+      </section>
+
+      <section class="panel">
+        <h3>Products</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="productsTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Inquiry Management</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Contact</th>
+                <th>Product</th>
+                <th>Message</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="inquiriesTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h3>Customer Database</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Last Inquiry</th>
+              </tr>
+            </thead>
+            <tbody id="customersTable"></tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <script src="/admin/assets/admin.js"></script>
+  </body>
+</html>
